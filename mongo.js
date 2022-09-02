@@ -20,13 +20,13 @@ const Person = mongoose.model('Person', personSchema)
 if (process.argv.length === 3) {
   mongoose
     .connect(url)
-    Person.find({}).then((result) => {
-      console.log('phonebook:')
-      result.forEach(person => {
-        console.log(`${person.name} ${person.number}`)
-      })
-      return mongoose.connection.close()
+  Person.find({}).then((result) => {
+    console.log('phonebook:')
+    result.forEach(person => {
+      console.log(`${person.name} ${person.number}`)
     })
+    return mongoose.connection.close()
+  })
     .catch((err) => console.log(err))
 } else if (process.argv.length === 5) {
   const person = new Person({

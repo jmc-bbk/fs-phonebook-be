@@ -16,7 +16,7 @@ mongoose.connect(url)
 
 const validateNumberLength = number => number.length >= 8
 const validateNumberHyphen = number => {
-  index = number.indexOf('-')
+  const index = number.indexOf('-')
   return (index === 2) || (index === 3)
 }
 
@@ -24,10 +24,6 @@ const validateNumber = [
   {validator: validateNumberLength, msg: 'Number must be greater than 8 characters.'},
   {validator: validateNumberHyphen, msg: 'Hyphen must be the 3rd or 4th character.'}
 ]
-
-const validateNameDoesNotExist = name => {
-
-}
 
 const personSchema = new mongoose.Schema({
   name: {
